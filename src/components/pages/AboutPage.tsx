@@ -354,7 +354,7 @@ export function AboutPage() {
                   </div>
                   <div>
                     <label className="block font-label-md text-label-md text-on-surface mb-1" htmlFor="userMessage">Detailed Message / Health Goals</label>
-                    <textarea className="w-full px-4 py-2.5 rounded-lg bg-surface-container-lowest text-on-surface shadow-inner placeholder:text-outline focus:outline-none focus:ring-2 focus:ring-secondary/50" id="userMessage" placeholder="Mention any existing clinical health challenges, current medication, or specific dietary requests..." required rows="4" />
+                    <textarea className="w-full px-4 py-2.5 rounded-lg bg-surface-container-lowest text-on-surface shadow-inner placeholder:text-outline focus:outline-none focus:ring-2 focus:ring-secondary/50" id="userMessage" placeholder="Mention any existing clinical health challenges, current medication, or specific dietary requests..." required rows={4} />
                   </div>
                   <div className="flex items-center justify-between pt-space-xs">
                     <span className="font-label-sm text-label-sm text-on-surface-variant flex items-center gap-1">
