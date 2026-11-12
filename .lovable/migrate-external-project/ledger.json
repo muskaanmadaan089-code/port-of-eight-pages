@@ -1,0 +1,20 @@
+{
+  "source": "code-archive (Google Stitch design export: stitch_nutrimaster_wellness_hub_platform)",
+  "capabilities": [
+    {"capability": "code", "source": "8 desktop HTML screens + 4 mobile variants (Tailwind CDN)", "outcome": "rebuild as TanStack routes with responsive layouts", "status": "in_progress", "next_action": "convert screens to route components"},
+    {"capability": "design system", "source": "DESIGN.md + inline tailwind.config", "outcome": "port tokens to src/styles.css", "status": "in_progress", "next_action": "port colors, type scale, spacing, radius"},
+    {"capability": "assets", "source": "images hosted on lh3.googleusercontent.com", "outcome": "re-host via Lovable assets", "status": "in_progress", "next_action": "download and upload images"},
+    {"capability": "client interactivity", "source": "inline scripts: tabs, selectors, filters, cart, scanner demo", "outcome": "recreate as React state", "status": "in_progress", "next_action": "port per page"},
+    {"capability": "schema", "source": "none (static mockup)", "outcome": "not applicable", "status": "verified", "next_action": "none"},
+    {"capability": "records", "source": "none (sample content embedded in HTML)", "outcome": "not applicable", "status": "verified", "next_action": "none"},
+    {"capability": "auth identities", "source": "none (account page is a static mockup)", "outcome": "not applicable", "status": "verified", "next_action": "offer real sign-in via Lovable Cloud if wanted"},
+    {"capability": "authorization", "source": "none", "outcome": "not applicable", "status": "verified", "next_action": "none"},
+    {"capability": "uploaded file bytes", "source": "none", "outcome": "not applicable", "status": "verified", "next_action": "none"},
+    {"capability": "external providers", "source": "WhatsApp wa.me links, tel: links, UPI deep links, Google Fonts, Material Symbols", "outcome": "preserve links as-is", "status": "in_progress", "next_action": "keep links in rebuilt pages"},
+    {"capability": "forms", "source": "contact, intake, booking forms with no submit target", "outcome": "client-side validation + confirmation (no backend in source)", "status": "in_progress", "next_action": "recreate forms"},
+    {"capability": "public endpoints / callbacks / webhooks / schedules", "source": "none", "outcome": "not applicable", "status": "verified", "next_action": "none"},
+    {"capability": "secrets", "source": "none", "outcome": "not applicable", "status": "verified", "next_action": "none"},
+    {"capability": "cutover", "source": "not published anywhere", "outcome": "publish from Lovable", "status": "pending", "next_action": "user publishes when ready"},
+    {"capability": "verification", "source": "-", "outcome": "build + render every page", "status": "pending", "next_action": "browser check"}
+  ]
+}

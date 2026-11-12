@@ -10,33 +10,167 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AboutRouteImport } from './routes/about'
+import { Route as AccountRouteImport } from './routes/account'
+import { Route as AdminRouteImport } from './routes/admin'
+import { Route as AuthRouteImport } from './routes/auth'
+import { Route as DietPlansRouteImport } from './routes/diet-plans'
+import { Route as NutriscanRouteImport } from './routes/nutriscan'
+import { Route as RegistrationRouteImport } from './routes/registration'
+import { Route as ResetPasswordRouteImport } from './routes/reset-password'
+import { Route as StoreRouteImport } from './routes/store'
+import { Route as TherapeuticDietsRouteImport } from './routes/therapeutic-diets'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AboutRoute = AboutRouteImport.update({
+  id: '/about',
+  path: '/about',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AccountRoute = AccountRouteImport.update({
+  id: '/account',
+  path: '/account',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminRoute = AdminRouteImport.update({
+  id: '/admin',
+  path: '/admin',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AuthRoute = AuthRouteImport.update({
+  id: '/auth',
+  path: '/auth',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DietPlansRoute = DietPlansRouteImport.update({
+  id: '/diet-plans',
+  path: '/diet-plans',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const NutriscanRoute = NutriscanRouteImport.update({
+  id: '/nutriscan',
+  path: '/nutriscan',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RegistrationRoute = RegistrationRouteImport.update({
+  id: '/registration',
+  path: '/registration',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ResetPasswordRoute = ResetPasswordRouteImport.update({
+  id: '/reset-password',
+  path: '/reset-password',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const StoreRoute = StoreRouteImport.update({
+  id: '/store',
+  path: '/store',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TherapeuticDietsRoute = TherapeuticDietsRouteImport.update({
+  id: '/therapeutic-diets',
+  path: '/therapeutic-diets',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/account': typeof AccountRoute
+  '/admin': typeof AdminRoute
+  '/auth': typeof AuthRoute
+  '/diet-plans': typeof DietPlansRoute
+  '/nutriscan': typeof NutriscanRoute
+  '/registration': typeof RegistrationRoute
+  '/reset-password': typeof ResetPasswordRoute
+  '/store': typeof StoreRoute
+  '/therapeutic-diets': typeof TherapeuticDietsRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/account': typeof AccountRoute
+  '/admin': typeof AdminRoute
+  '/auth': typeof AuthRoute
+  '/diet-plans': typeof DietPlansRoute
+  '/nutriscan': typeof NutriscanRoute
+  '/registration': typeof RegistrationRoute
+  '/reset-password': typeof ResetPasswordRoute
+  '/store': typeof StoreRoute
+  '/therapeutic-diets': typeof TherapeuticDietsRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/account': typeof AccountRoute
+  '/admin': typeof AdminRoute
+  '/auth': typeof AuthRoute
+  '/diet-plans': typeof DietPlansRoute
+  '/nutriscan': typeof NutriscanRoute
+  '/registration': typeof RegistrationRoute
+  '/reset-password': typeof ResetPasswordRoute
+  '/store': typeof StoreRoute
+  '/therapeutic-diets': typeof TherapeuticDietsRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/about'
+    | '/account'
+    | '/admin'
+    | '/auth'
+    | '/diet-plans'
+    | '/nutriscan'
+    | '/registration'
+    | '/reset-password'
+    | '/store'
+    | '/therapeutic-diets'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/about'
+    | '/account'
+    | '/admin'
+    | '/auth'
+    | '/diet-plans'
+    | '/nutriscan'
+    | '/registration'
+    | '/reset-password'
+    | '/store'
+    | '/therapeutic-diets'
+  id:
+    | '__root__'
+    | '/'
+    | '/about'
+    | '/account'
+    | '/admin'
+    | '/auth'
+    | '/diet-plans'
+    | '/nutriscan'
+    | '/registration'
+    | '/reset-password'
+    | '/store'
+    | '/therapeutic-diets'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AboutRoute: typeof AboutRoute
+  AccountRoute: typeof AccountRoute
+  AdminRoute: typeof AdminRoute
+  AuthRoute: typeof AuthRoute
+  DietPlansRoute: typeof DietPlansRoute
+  NutriscanRoute: typeof NutriscanRoute
+  RegistrationRoute: typeof RegistrationRoute
+  ResetPasswordRoute: typeof ResetPasswordRoute
+  StoreRoute: typeof StoreRoute
+  TherapeuticDietsRoute: typeof TherapeuticDietsRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +182,91 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/about': {
+      id: '/about'
+      path: '/about'
+      fullPath: '/about'
+      preLoaderRoute: typeof AboutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/account': {
+      id: '/account'
+      path: '/account'
+      fullPath: '/account'
+      preLoaderRoute: typeof AccountRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin': {
+      id: '/admin'
+      path: '/admin'
+      fullPath: '/admin'
+      preLoaderRoute: typeof AdminRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/auth': {
+      id: '/auth'
+      path: '/auth'
+      fullPath: '/auth'
+      preLoaderRoute: typeof AuthRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/diet-plans': {
+      id: '/diet-plans'
+      path: '/diet-plans'
+      fullPath: '/diet-plans'
+      preLoaderRoute: typeof DietPlansRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/nutriscan': {
+      id: '/nutriscan'
+      path: '/nutriscan'
+      fullPath: '/nutriscan'
+      preLoaderRoute: typeof NutriscanRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/registration': {
+      id: '/registration'
+      path: '/registration'
+      fullPath: '/registration'
+      preLoaderRoute: typeof RegistrationRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/reset-password': {
+      id: '/reset-password'
+      path: '/reset-password'
+      fullPath: '/reset-password'
+      preLoaderRoute: typeof ResetPasswordRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/store': {
+      id: '/store'
+      path: '/store'
+      fullPath: '/store'
+      preLoaderRoute: typeof StoreRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/therapeutic-diets': {
+      id: '/therapeutic-diets'
+      path: '/therapeutic-diets'
+      fullPath: '/therapeutic-diets'
+      preLoaderRoute: typeof TherapeuticDietsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AboutRoute: AboutRoute,
+  AccountRoute: AccountRoute,
+  AdminRoute: AdminRoute,
+  AuthRoute: AuthRoute,
+  DietPlansRoute: DietPlansRoute,
+  NutriscanRoute: NutriscanRoute,
+  RegistrationRoute: RegistrationRoute,
+  ResetPasswordRoute: ResetPasswordRoute,
+  StoreRoute: StoreRoute,
+  TherapeuticDietsRoute: TherapeuticDietsRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
