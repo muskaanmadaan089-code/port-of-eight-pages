@@ -36,3 +36,21 @@ export const WHATSAPP = {
 };
 export const waLink = (phone: string, text?: string) =>
   `https://wa.me/${phone}${text ? `?text=${encodeURIComponent(text)}` : ""}`;
+
+/** UPI ID shown for manual payments (from the original design). */
+export const UPI_ID = "nutrimaster@upi";
+
+export const addDaysISO = (days: number) => {
+  const d = new Date();
+  d.setDate(d.getDate() + days);
+  const off = d.getTimezoneOffset();
+  return new Date(d.getTime() - off * 60000).toISOString().slice(0, 10);
+};
+
+/** Turns a database/RPC error into a short message safe to show users. */
+export function friendlyError(err: unknown, fallback = "Something went wrong. Please try again.") {
+  const msg = (err as { message?: string } | null)?.message ?? "";
+  if (!msg) return fallback;
+  if (/jwt|permission denied|row-level security|violates/i.test(msg)) return fallback;
+  return msg.length > 160 ? fallback : msg;
+}

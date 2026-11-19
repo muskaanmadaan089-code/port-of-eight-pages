@@ -1,9 +1,16 @@
+import { useState } from "react";
+import { BookingSection, type PlanSlug } from "@/components/booking/BookingSection";
 import img10 from "@/assets/photos/img10.jpg.asset.json";
 import img11 from "@/assets/photos/img11.jpg.asset.json";
 import img12 from "@/assets/photos/img12.jpg.asset.json";
 import img13 from "@/assets/photos/img13.jpg.asset.json";
 
 export function DietPlansPage() {
+  const [plan, setPlan] = useState<PlanSlug>("weight-management");
+  const choose = (slug: PlanSlug) => {
+    setPlan(slug);
+    scrollToBooking();
+  };
   return (
     <>
       <div className="flex flex-col w-full">
@@ -77,7 +84,7 @@ export function DietPlansPage() {
                   </ul>
                 </div>
                 <div className="pt-space-sm flex items-center gap-space-sm">
-                  <button className="w-full py-2.5 px-space-md rounded-full bg-primary-container text-on-primary font-label-lg text-label-lg shadow-sm hover:bg-secondary hover:text-on-secondary transition-all text-center" data-onclick="prefillBooking('Initial Clinical Assessment (₹699)')">Book Assessment (₹699)</button>
+                  <button className="w-full py-2.5 px-space-md rounded-full bg-primary-container text-on-primary font-label-lg text-label-lg shadow-sm hover:bg-secondary hover:text-on-secondary transition-all text-center" type="button" onClick={() => choose("initial-assessment")}>Book Assessment (₹699)</button>
                 </div>
               </div>
               <div className="relative bg-surface-container-lowest rounded-2xl p-space-lg shadow-sm hover:shadow-md transition-all duration-300 flex flex-col justify-between overflow-hidden group">
@@ -116,7 +123,7 @@ export function DietPlansPage() {
                   </ul>
                 </div>
                 <div className="pt-space-sm flex items-center gap-space-sm">
-                  <button className="w-full py-2.5 px-space-md rounded-full bg-surface-container-high text-primary font-label-lg text-label-lg hover:bg-primary-container hover:text-on-primary transition-all text-center" data-onclick="prefillBooking('Review Follow-Up (₹399)')">Schedule Review (₹399)</button>
+                  <button className="w-full py-2.5 px-space-md rounded-full bg-surface-container-high text-primary font-label-lg text-label-lg hover:bg-primary-container hover:text-on-primary transition-all text-center" type="button" onClick={() => choose("review-follow-up")}>Schedule Review (₹399)</button>
                 </div>
               </div>
             </div>
@@ -163,8 +170,8 @@ export function DietPlansPage() {
                   </div>
                 </div>
                 <div className="space-y-2 pt-space-sm">
-                  <button className="w-full py-2.5 rounded-full bg-primary-container text-on-primary font-label-lg text-label-lg shadow-sm hover:bg-secondary hover:text-on-secondary transition-colors" data-onclick="prefillBooking('Basic Nutrition Plan (₹1,499/mo)')">Choose Plan</button>
-                  <button className="w-full py-1.5 text-center font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors" data-onclick="scrollToBooking()">Book Consultation →</button>
+                  <button className="w-full py-2.5 rounded-full bg-primary-container text-on-primary font-label-lg text-label-lg shadow-sm hover:bg-secondary hover:text-on-secondary transition-colors" type="button" onClick={() => choose("basic-nutrition")}>Choose Plan</button>
+                  <button className="w-full py-1.5 text-center font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors" type="button" onClick={scrollToBooking}>Book Consultation →</button>
                 </div>
               </div>
               <div className="bg-surface-container-lowest rounded-2xl p-space-lg shadow-md hover:shadow-xl transition-all duration-300 flex flex-col justify-between relative ring-2 ring-secondary/60">
@@ -201,8 +208,8 @@ export function DietPlansPage() {
                   </div>
                 </div>
                 <div className="space-y-2 pt-space-sm">
-                  <button className="w-full py-2.5 rounded-full bg-secondary text-on-secondary font-label-lg text-label-lg shadow-sm hover:bg-primary-container transition-colors" data-onclick="prefillBooking('Weight Management Plan (₹2,999/mo)')">Choose Plan</button>
-                  <button className="w-full py-1.5 text-center font-label-sm text-label-sm text-primary font-semibold hover:underline" data-onclick="scrollToBooking()">Book Consultation →</button>
+                  <button className="w-full py-2.5 rounded-full bg-secondary text-on-secondary font-label-lg text-label-lg shadow-sm hover:bg-primary-container transition-colors" type="button" onClick={() => choose("weight-management")}>Choose Plan</button>
+                  <button className="w-full py-1.5 text-center font-label-sm text-label-sm text-primary font-semibold hover:underline" type="button" onClick={scrollToBooking}>Book Consultation →</button>
                 </div>
               </div>
               <div className="bg-surface-container-lowest rounded-2xl p-space-lg shadow-sm hover:shadow-md transition-all duration-300 flex flex-col justify-between relative group">
@@ -238,8 +245,8 @@ export function DietPlansPage() {
                   </div>
                 </div>
                 <div className="space-y-2 pt-space-sm">
-                  <button className="w-full py-2.5 rounded-full bg-primary-container text-on-primary font-label-lg text-label-lg shadow-sm hover:bg-secondary hover:text-on-secondary transition-colors" data-onclick="prefillBooking('Fitness & Muscle Building Plan (₹3,999/mo)')">Choose Plan</button>
-                  <button className="w-full py-1.5 text-center font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors" data-onclick="scrollToBooking()">Book Consultation →</button>
+                  <button className="w-full py-2.5 rounded-full bg-primary-container text-on-primary font-label-lg text-label-lg shadow-sm hover:bg-secondary hover:text-on-secondary transition-colors" type="button" onClick={() => choose("fitness-muscle")}>Choose Plan</button>
+                  <button className="w-full py-1.5 text-center font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors" type="button" onClick={scrollToBooking}>Book Consultation →</button>
                 </div>
               </div>
               <div className="bg-primary text-on-primary rounded-2xl p-space-lg shadow-lg hover:shadow-2xl transition-all duration-300 flex flex-col justify-between relative overflow-hidden group">
@@ -277,8 +284,8 @@ export function DietPlansPage() {
                   </div>
                 </div>
                 <div className="space-y-2 pt-space-sm">
-                  <button className="w-full py-2.5 rounded-full bg-secondary-fixed text-on-secondary-fixed font-label-lg text-label-lg shadow-md hover:bg-secondary-fixed-dim transition-colors" data-onclick="prefillBooking('Premium Wellness Plan (₹5,999/mo)')">Choose Plan</button>
-                  <button className="w-full py-1.5 text-center font-label-sm text-label-sm text-primary-fixed-dim hover:text-white transition-colors" data-onclick="scrollToBooking()">Book Consultation →</button>
+                  <button className="w-full py-2.5 rounded-full bg-secondary-fixed text-on-secondary-fixed font-label-lg text-label-lg shadow-md hover:bg-secondary-fixed-dim transition-colors" type="button" onClick={() => choose("premium-wellness")}>Choose Plan</button>
+                  <button className="w-full py-1.5 text-center font-label-sm text-label-sm text-primary-fixed-dim hover:text-white transition-colors" type="button" onClick={scrollToBooking}>Book Consultation →</button>
                 </div>
               </div>
             </div>
@@ -290,190 +297,7 @@ export function DietPlansPage() {
                 <h2 className="font-headline-xl text-headline-xl-mobile md:text-headline-xl text-primary tracking-tight">Schedule Your Clinical Consultation</h2>
                 <p className="font-body-md text-body-md text-on-surface-variant mt-1">Book online or clinic visit with our lead practitioners. Instant confirmation with zero consultation lag.</p>
               </div>
-              <div className="grid grid-cols-1 lg:grid-cols-12 gap-gutter-lg">
-                <div className="lg:col-span-7 bg-surface-container-lowest p-space-lg rounded-2xl shadow-sm">
-                  <form className="space-y-space-md" id="consultation-form" data-onsubmit="handleBookingSubmit(event)">
-                    <div>
-                      <label className="block font-label-lg text-label-lg text-primary mb-2">Consultation Mode</label>
-                      <div className="grid grid-cols-2 gap-space-sm p-1 bg-surface-container-low rounded-full">
-                        <button className="py-2.5 px-4 rounded-full font-label-lg text-label-lg flex items-center justify-center gap-2 transition-all bg-primary-container text-on-primary shadow-sm" id="btn-mode-online" data-onclick="setMode('online')" type="button">
-                          <span className="material-symbols-outlined text-[18px]">videocam</span>
-                          Online Call / Video
-                        </button>
-                        <button className="py-2.5 px-4 rounded-full font-label-lg text-label-lg flex items-center justify-center gap-2 transition-all text-on-surface-variant hover:text-primary" id="btn-mode-offline" data-onclick="setMode('offline')" type="button">
-                          <span className="material-symbols-outlined text-[18px]">domain</span>
-                          Offline Clinic Visit
-                        </button>
-                      </div>
-                      <input id="selected-mode" type="hidden" defaultValue="online" />
-                    </div>
-                    <div>
-                      <label className="block font-label-lg text-label-lg text-primary mb-1" htmlFor="plan-select">Select Consultation or Membership</label>
-                      <div className="relative">
-                        <select className="w-full bg-surface-container-lowest border-0 rounded-xl px-4 py-3 text-on-surface font-body-md text-body-md shadow-sm appearance-none focus:outline-none focus:ring-2 focus:ring-secondary" id="plan-select" data-onchange="updateSummary()" defaultValue="Weight Management Plan (₹2,999/mo)">
-                          <option data-price="699" value="Initial Clinical Assessment (₹699)">Initial Clinical Assessment (₹699/session)</option>
-                          <option data-price="399" value="Review Follow-Up (₹399)">Review Follow-Up (₹399/session)</option>
-                          <option data-price="1499" value="Basic Nutrition Plan (₹1,499/mo)">Basic Nutrition Plan (₹1,499/month)</option>
-                          <option data-price="2999" value="Weight Management Plan (₹2,999/mo)">Weight Management Plan (₹2,999/month)</option>
-                          <option data-price="3999" value="Fitness & Muscle Building Plan (₹3,999/mo)">Fitness & Muscle Building Plan (₹3,999/month)</option>
-                          <option data-price="5999" value="Premium Wellness Plan (₹5,999/mo)">Premium Wellness Plan (₹5,999/month)</option>
-                        </select>
-                        <span className="material-symbols-outlined absolute right-4 top-1/2 -translate-y-1/2 text-on-surface-variant pointer-events-none">expand_more</span>
-                      </div>
-                    </div>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-space-md">
-                      <div>
-                        <label className="block font-label-lg text-label-lg text-primary mb-1" htmlFor="appointment-date">Preferred Date</label>
-                        <input className="w-full bg-surface-container-lowest rounded-xl px-4 py-2.5 text-on-surface font-body-md shadow-sm focus:outline-none focus:ring-2 focus:ring-secondary" id="appointment-date" min="2025-04-01" data-onchange="updateSummary()" type="date" defaultValue="2025-04-10" />
-                      </div>
-                      <div>
-                        <label className="block font-label-lg text-label-lg text-primary mb-1" htmlFor="clinician-select">Lead Clinician</label>
-                        <div className="relative">
-                          <select className="w-full bg-surface-container-lowest rounded-xl px-4 py-2.5 text-on-surface font-body-md shadow-sm appearance-none focus:outline-none focus:ring-2 focus:ring-secondary" id="clinician-select" data-onchange="updateSummary()">
-                            <option value="Muskaan (Clinical Specialist)">Muskaan (Clinical & Hormonal)</option>
-                            <option value="Nishan Mann (Sports & Hypertrophy)">Nishan Mann (Sports & Hypertrophy)</option>
-                            <option value="First Available Senior Specialist">First Available Senior Specialist</option>
-                          </select>
-                          <span className="material-symbols-outlined absolute right-4 top-1/2 -translate-y-1/2 text-on-surface-variant pointer-events-none">expand_more</span>
-                        </div>
-                      </div>
-                    </div>
-                    <div>
-                      <label className="block font-label-lg text-label-lg text-primary mb-2">Available Time Slot</label>
-                      <div className="space-y-space-xs">
-                        <div>
-                          <span className="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider block mb-1">Morning (10:00 AM - 01:00 PM)</span>
-                          <div className="grid grid-cols-3 gap-2">
-                            <button className="slot-btn py-2 rounded-xl text-center font-label-sm bg-surface-container text-on-surface hover:bg-secondary-container transition-all" data-onclick="selectSlot(this, '10:00 AM')" type="button">10:00 AM</button>
-                            <button className="slot-btn py-2 rounded-xl text-center font-label-sm bg-primary-container text-on-primary font-bold shadow-sm" data-onclick="selectSlot(this, '11:30 AM')" type="button">11:30 AM</button>
-                            <button className="slot-btn py-2 rounded-xl text-center font-label-sm bg-surface-container text-on-surface hover:bg-secondary-container transition-all" data-onclick="selectSlot(this, '12:15 PM')" type="button">12:15 PM</button>
-                          </div>
-                        </div>
-                        <div className="pt-2">
-                          <span className="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider block mb-1">Afternoon (02:00 PM - 05:00 PM)</span>
-                          <div className="grid grid-cols-3 gap-2">
-                            <button className="slot-btn py-2 rounded-xl text-center font-label-sm bg-surface-container text-on-surface hover:bg-secondary-container transition-all" data-onclick="selectSlot(this, '02:30 PM')" type="button">02:30 PM</button>
-                            <button className="slot-btn py-2 rounded-xl text-center font-label-sm bg-surface-container text-on-surface hover:bg-secondary-container transition-all" data-onclick="selectSlot(this, '03:45 PM')" type="button">03:45 PM</button>
-                            <button className="slot-btn py-2 rounded-xl text-center font-label-sm bg-surface-container text-on-surface hover:bg-secondary-container transition-all" data-onclick="selectSlot(this, '04:30 PM')" type="button">04:30 PM</button>
-                          </div>
-                        </div>
-                        <div className="pt-2">
-                          <span className="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider block mb-1">Evening (06:00 PM - 08:30 PM)</span>
-                          <div className="grid grid-cols-3 gap-2">
-                            <button className="slot-btn py-2 rounded-xl text-center font-label-sm bg-surface-container text-on-surface hover:bg-secondary-container transition-all" data-onclick="selectSlot(this, '06:00 PM')" type="button">06:00 PM</button>
-                            <button className="slot-btn py-2 rounded-xl text-center font-label-sm bg-surface-container text-on-surface hover:bg-secondary-container transition-all" data-onclick="selectSlot(this, '07:15 PM')" type="button">07:15 PM</button>
-                            <button className="slot-btn py-2 rounded-xl text-center font-label-sm bg-surface-container text-on-surface hover:bg-secondary-container transition-all" data-onclick="selectSlot(this, '08:00 PM')" type="button">08:00 PM</button>
-                          </div>
-                        </div>
-                      </div>
-                      <input id="selected-slot" type="hidden" defaultValue="11:30 AM" />
-                    </div>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-space-md pt-space-xs">
-                      <div>
-                        <label className="block font-label-lg text-label-lg text-primary mb-1" htmlFor="client-name">Patient Full Name</label>
-                        <input className="w-full bg-surface-container-lowest rounded-xl px-4 py-2.5 text-on-surface font-body-md shadow-sm focus:outline-none focus:ring-2 focus:ring-secondary" id="client-name" data-oninput="updateSummary()" placeholder="e.g. Priyanshu Sharma" required type="text" />
-                      </div>
-                      <div>
-                        <label className="block font-label-lg text-label-lg text-primary mb-1" htmlFor="client-phone">WhatsApp / Phone Number</label>
-                        <input className="w-full bg-surface-container-lowest rounded-xl px-4 py-2.5 text-on-surface font-body-md shadow-sm focus:outline-none focus:ring-2 focus:ring-secondary" id="client-phone" data-oninput="updateSummary()" placeholder="+91 98765 43210" required type="tel" />
-                      </div>
-                    </div>
-                    <div className="pt-space-xs">
-                      <button className="w-full py-3.5 px-space-lg rounded-full bg-primary-container text-on-primary font-title-md text-title-md shadow-md hover:bg-secondary transition-all flex items-center justify-center gap-2 group" type="submit">
-                        <span>Confirm & Proceed to Payment</span>
-                        <span className="material-symbols-outlined text-[20px] transition-transform group-hover:translate-x-1">arrow_forward</span>
-                      </button>
-                    </div>
-                  </form>
-                </div>
-                <div className="lg:col-span-5 flex flex-col justify-between space-y-space-md">
-                  <div className="bg-surface-container-lowest p-space-lg rounded-2xl shadow-sm space-y-space-md">
-                    <div className="flex items-center justify-between pb-space-sm border-b border-surface-container">
-                      <h3 className="font-headline-sm text-headline-sm text-primary">Appointment Dossier</h3>
-                      <span className="font-label-sm text-label-sm bg-secondary-container text-on-secondary-container px-2.5 py-0.5 rounded-full font-semibold">Live Review</span>
-                    </div>
-                    <div className="space-y-2.5 font-body-sm text-body-sm">
-                      <div className="flex justify-between py-1">
-                        <span className="text-on-surface-variant">Selected Plan:</span>
-                        <span className="font-semibold text-primary text-right" id="summary-plan">Weight Management Plan</span>
-                      </div>
-                      <div className="flex justify-between py-1">
-                        <span className="text-on-surface-variant">Mode:</span>
-                        <span className="font-semibold text-primary" id="summary-mode">Online Video (Google Meet / WhatsApp)</span>
-                      </div>
-                      <div className="flex justify-between py-1">
-                        <span className="text-on-surface-variant">Practitioner:</span>
-                        <span className="font-semibold text-primary text-right" id="summary-clinician">Muskaan (Clinical Specialist)</span>
-                      </div>
-                      <div className="flex justify-between py-1">
-                        <span className="text-on-surface-variant">Date & Time:</span>
-                        <span className="font-semibold text-secondary" id="summary-datetime">10 Apr 2025 at 11:30 AM</span>
-                      </div>
-                      <div className="flex justify-between py-1">
-                        <span className="text-on-surface-variant">Duration:</span>
-                        <span className="font-semibold text-primary">30 Minutes (Clinical Standard)</span>
-                      </div>
-                      <div className="flex justify-between py-1">
-                        <span className="text-on-surface-variant">Client Name:</span>
-                        <span className="font-semibold text-primary" id="summary-client">Self / Registered Member</span>
-                      </div>
-                    </div>
-                    <div className="bg-surface-container-low p-space-md rounded-xl space-y-2">
-                      <div className="flex justify-between font-body-sm text-body-sm text-on-surface-variant">
-                        <span>Session / Plan Fee</span>
-                        <span className="font-semibold text-on-surface" id="summary-fee">₹2,999</span>
-                      </div>
-                      <div className="flex justify-between font-body-sm text-body-sm text-on-surface-variant">
-                        <span>Digital Processing & Record Filing</span>
-                        <span className="text-secondary font-semibold">FREE (₹0)</span>
-                      </div>
-                      <div className="pt-2 border-t border-surface-container flex justify-between items-baseline font-title-md text-title-md text-primary">
-                        <span className="font-bold">Total Payable Amount</span>
-                        <span className="font-headline-sm text-headline-sm font-bold text-primary" id="summary-total">₹2,999</span>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="bg-surface-container-lowest p-space-lg rounded-2xl shadow-sm">
-                    <div className="flex items-center gap-space-sm mb-space-sm">
-                      <div className="w-8 h-8 rounded-lg bg-surface-container-high flex items-center justify-center text-primary">
-                        <span className="material-symbols-outlined text-[20px]">qr_code_2</span>
-                      </div>
-                      <div>
-                        <h4 className="font-title-md text-title-md text-primary">Direct UPI & Clinic Payment</h4>
-                        <p className="font-label-sm text-label-sm text-on-surface-variant">Instant confirmation sent to your WhatsApp</p>
-                      </div>
-                    </div>
-                    <div className="flex items-center gap-space-md p-space-sm bg-surface-container-low rounded-xl mb-space-sm">
-                      <div className="w-16 h-16 bg-surface-container-lowest p-1.5 rounded-lg shrink-0 shadow-xs flex items-center justify-center">
-                        <svg className="w-full h-full text-primary" fill="currentColor" viewBox="0 0 24 24">
-                          <path d="M2 2h8v8H2V2zm2 2v4h4V4H4zm-2 8h8v8H2v-8zm2 2v4h4v-4H4zm8-12h8v8h-8V2zm2 2v4h4V4h-4zm2 8h2v2h-2v-2zm-2 2h2v2h-2v-2zm4 0h2v2h-2v-2zm2-2h2v2h-2v-2zm-4 4h2v2h-2v-2zm2 2h2v2h-2v-2zm2-2h2v2h-2v-2zM5 5h2v2H5V5zm0 8h2v2H5v-2zm8-8h2v2h-2V5z" />
-                        </svg>
-                      </div>
-                      <div className="min-w-0">
-                        <p className="font-label-lg text-label-lg text-primary truncate">nutrimaster@upi</p>
-                        <p className="font-body-sm text-body-sm text-on-surface-variant">Accepts GPay, PhonePe, Paytm & NetBanking</p>
-                      </div>
-                    </div>
-                    <div className="flex items-center justify-between text-on-surface-variant font-label-sm text-label-sm">
-                      <span className="flex items-center gap-1">
-                        <span className="material-symbols-outlined text-secondary text-[16px]">lock</span>
-                        256-Bit Encrypted Triage
-                      </span>
-                      <span>PAN-India Billing</span>
-                    </div>
-                  </div>
-                  <div className="bg-primary-container text-on-primary p-space-md rounded-2xl flex items-center justify-between shadow-sm">
-                    <div className="flex items-center gap-space-sm">
-                      <span className="material-symbols-outlined text-[24px] text-secondary-fixed">chat</span>
-                      <div>
-                        <p className="font-label-lg text-label-lg">Need Immediate Help?</p>
-                        <p className="font-body-sm text-body-sm text-on-primary-container">Chat with Muskaan or Nishan Mann</p>
-                      </div>
-                    </div>
-                    <a className="px-3.5 py-1.5 rounded-full bg-secondary text-on-secondary font-label-sm text-label-sm hover:opacity-90 transition-opacity" href="https://wa.me/917404114816" target="_blank" rel="noopener noreferrer">WhatsApp</a>
-                  </div>
-                </div>
-              </div>
+              <BookingSection selected={plan} onSelect={setPlan} />
             </div>
           </section>
           <section className="mb-space-xl">
@@ -529,4 +353,8 @@ export function DietPlansPage() {
       </div>
     </>
   );
+}
+
+function scrollToBooking() {
+  document.getElementById("booking-section")?.scrollIntoView({ behavior: "smooth", block: "start" });
 }

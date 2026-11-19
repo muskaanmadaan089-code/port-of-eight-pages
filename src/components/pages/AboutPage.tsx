@@ -1,3 +1,5 @@
+import { ContactForm, CopyButton, UtrForm } from "@/components/about/ContactForms";
+import { PaymentStatusList } from "@/components/about/PaymentStatusList";
 import img29 from "@/assets/photos/img29.jpg.asset.json";
 import img30 from "@/assets/photos/img30.png.asset.json";
 
@@ -214,9 +216,7 @@ export function AboutPage() {
                             <p className="font-label-sm text-label-sm text-outline">Verified VPA / UPI ID</p>
                             <div className="flex items-center gap-2 mt-1 bg-surface-container-lowest p-2 rounded-lg">
                               <span className="font-mono font-semibold text-on-surface text-body-sm truncate" id="upi-muskaan">muskaan.nutrimaster@upi</span>
-                              <button className="p-1 rounded bg-surface-container hover:bg-surface-variant text-primary transition-colors ml-auto" id="btn-copy-muskaan" data-onclick="copyText('upi-muskaan', 'btn-copy-muskaan')" title="Copy UPI ID" type="button">
-                                <span className="material-symbols-outlined text-[16px]">content_copy</span>
-                              </button>
+                              <CopyButton text="muskaan.nutrimaster@upi" label="Copy UPI ID" />
                             </div>
                           </div>
                           <a className="w-full inline-flex items-center justify-center gap-2 px-3 py-2 rounded-full bg-primary-container text-on-primary font-label-sm text-label-sm hover:bg-secondary transition-colors" href="upi://pay?pa=muskaan.nutrimaster@upi&pn=Muskaan&cu=INR">
@@ -300,9 +300,7 @@ export function AboutPage() {
                             <p className="font-label-sm text-label-sm text-outline">Verified VPA / UPI ID</p>
                             <div className="flex items-center gap-2 mt-1 bg-surface-container-lowest p-2 rounded-lg">
                               <span className="font-mono font-semibold text-on-surface text-body-sm truncate" id="upi-nishan">nishan.nutrimaster@upi</span>
-                              <button className="p-1 rounded bg-surface-container hover:bg-surface-variant text-primary transition-colors ml-auto" id="btn-copy-nishan" data-onclick="copyText('upi-nishan', 'btn-copy-nishan')" title="Copy UPI ID" type="button">
-                                <span className="material-symbols-outlined text-[16px]">content_copy</span>
-                              </button>
+                              <CopyButton text="nishan.nutrimaster@upi" label="Copy UPI ID" />
                             </div>
                           </div>
                           <a className="w-full inline-flex items-center justify-center gap-2 px-3 py-2 rounded-full bg-primary-container text-on-primary font-label-sm text-label-sm hover:bg-secondary transition-colors" href="upi://pay?pa=nishan.nutrimaster@upi&pn=Nishan%20Mann&cu=INR">
@@ -325,52 +323,7 @@ export function AboutPage() {
                   <h2 className="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-primary mt-1">Send a Detailed Message</h2>
                   <p className="font-body-sm text-body-sm text-on-surface-variant mt-1">Have a medical query, need dietary assistance, or seeking custom supplement orders? Fill out the form and our clinical desk will respond within 4 business hours.</p>
                 </div>
-                <form className="space-y-space-md" id="contactForm" data-onsubmit="handleFormSubmit(event)">
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-space-md">
-                    <div>
-                      <label className="block font-label-md text-label-md text-on-surface mb-1" htmlFor="fullName">Full Name</label>
-                      <input className="w-full px-4 py-2.5 rounded-lg bg-surface-container-lowest text-on-surface shadow-inner placeholder:text-outline focus:outline-none focus:ring-2 focus:ring-secondary/50" id="fullName" placeholder="e.g. Dr. Aarav Sharma" required type="text" />
-                    </div>
-                    <div>
-                      <label className="block font-label-md text-label-md text-on-surface mb-1" htmlFor="emailAddr">Email Address</label>
-                      <input className="w-full px-4 py-2.5 rounded-lg bg-surface-container-lowest text-on-surface shadow-inner placeholder:text-outline focus:outline-none focus:ring-2 focus:ring-secondary/50" id="emailAddr" placeholder="aarav.sharma@domain.com" required type="email" />
-                    </div>
-                  </div>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-space-md">
-                    <div>
-                      <label className="block font-label-md text-label-md text-on-surface mb-1" htmlFor="phoneNum">Phone Number (with WhatsApp)</label>
-                      <input className="w-full px-4 py-2.5 rounded-lg bg-surface-container-lowest text-on-surface shadow-inner placeholder:text-outline focus:outline-none focus:ring-2 focus:ring-secondary/50" id="phoneNum" placeholder="+91 98765 43210" required type="tel" />
-                    </div>
-                    <div>
-                      <label className="block font-label-md text-label-md text-on-surface mb-1" htmlFor="subjectMatter">Subject</label>
-                      <select className="w-full px-4 py-2.5 rounded-lg bg-surface-container-lowest text-on-surface shadow-inner focus:outline-none focus:ring-2 focus:ring-secondary/50" id="subjectMatter">
-                        <option value="diet-consultation">Diet Plan Consultation</option>
-                        <option value="therapeutic-diet">Therapeutic Clinical Query (PCOS/Thyroid/Diabetes)</option>
-                        <option value="supplement-refill">Supplement Order / Store Inquiry</option>
-                        <option value="payment-issue">Payment Confirmation / UTR Update</option>
-                        <option value="general-inquiry">General Wellness Inquiry</option>
-                      </select>
-                    </div>
-                  </div>
-                  <div>
-                    <label className="block font-label-md text-label-md text-on-surface mb-1" htmlFor="userMessage">Detailed Message / Health Goals</label>
-                    <textarea className="w-full px-4 py-2.5 rounded-lg bg-surface-container-lowest text-on-surface shadow-inner placeholder:text-outline focus:outline-none focus:ring-2 focus:ring-secondary/50" id="userMessage" placeholder="Mention any existing clinical health challenges, current medication, or specific dietary requests..." required rows={4} />
-                  </div>
-                  <div className="flex items-center justify-between pt-space-xs">
-                    <span className="font-label-sm text-label-sm text-on-surface-variant flex items-center gap-1">
-                      <span className="material-symbols-outlined text-[16px] text-secondary">lock</span>
-                      Your medical data is held in strict clinical confidentiality.
-                    </span>
-                    <button className="inline-flex items-center justify-center gap-2 px-space-lg py-3 rounded-full bg-primary text-on-primary font-label-lg text-label-lg shadow-sm hover:bg-secondary transition-all" id="submitBtn" type="submit">
-                      <span>Send Enquiry</span>
-                      <span className="material-symbols-outlined text-[18px]">send</span>
-                    </button>
-                  </div>
-                  <div className="hidden p-space-sm bg-secondary-container text-on-secondary-container rounded-xl flex items-center gap-2" id="formSuccessToast">
-                    <span className="material-symbols-outlined text-[20px]">check_circle</span>
-                    <span className="font-body-sm text-body-sm">Thank you! Your enquiry has been routed directly to our Chandigarh desk. We will reach out shortly.</span>
-                  </div>
-                </form>
+                <ContactForm />
               </div>
               <div className="lg:col-span-5 space-y-space-md">
                 <div className="bg-surface-container-lowest rounded-3xl p-space-lg shadow-sm space-y-space-md">
@@ -460,7 +413,7 @@ export function AboutPage() {
                       <span className="material-symbols-outlined text-secondary text-[20px]">account_balance</span>
                       1. Domestic UPI Instant Gateway
                     </h3>
-                    <p className="font-body-sm text-body-sm text-on-surface-variant">Transfer fees or supplement purchase amounts directly to our listed accounts using any UPI application. Transaction confirmations reflect in real-time.</p>
+                    <p className="font-body-sm text-body-sm text-on-surface-variant">Transfer fees or supplement purchase amounts directly to our listed accounts using any UPI application. Our desk verifies each payment and confirms it on WhatsApp.</p>
                     <div className="flex flex-wrap gap-2 mt-space-sm">
                       <span className="px-2.5 py-1 rounded bg-surface-container font-mono text-label-sm text-on-surface">Google Pay</span>
                       <span className="px-2.5 py-1 rounded bg-surface-container font-mono text-label-sm text-on-surface">PhonePe</span>
@@ -487,71 +440,11 @@ export function AboutPage() {
                   <div>
                     <div className="flex items-center justify-between mb-space-sm">
                       <h3 className="font-title-md text-title-md text-primary">Payment Confirmation & UTR Lookup</h3>
-                      <span className="font-label-sm text-label-sm text-outline">Real-time status check</span>
+                      <span className="font-label-sm text-label-sm text-outline">Manual verification</span>
                     </div>
-                    <p className="font-body-sm text-body-sm text-on-surface-variant mb-space-md">Submitted your payment via UPI? Provide your 12-digit UTR or Transaction ID below to verify your appointment or dispatch status instantly.</p>
-                    <form className="space-y-space-sm mb-space-md" data-onsubmit="handleUtrVerify(event)">
-                      <div className="grid grid-cols-1 sm:grid-cols-12 gap-space-sm">
-                        <div className="sm:col-span-8">
-                          <input className="w-full px-4 py-2.5 rounded-lg bg-surface-container-lowest text-on-surface placeholder:text-outline focus:outline-none focus:ring-2 focus:ring-secondary/50 font-mono text-body-sm" id="utrInput" pattern="[0-9A-Za-z]{8,18}" placeholder="Enter 12-digit UPI Ref / UTR No. (e.g. 408923481234)" required type="text" />
-                        </div>
-                        <div className="sm:col-span-4">
-                          <button className="w-full px-4 py-2.5 rounded-lg bg-primary text-on-primary font-label-md text-label-md hover:bg-secondary transition-colors" type="submit">Verify Status</button>
-                        </div>
-                      </div>
-                    </form>
-                    <div>
-                      <p className="font-label-sm text-label-sm uppercase tracking-wider text-outline font-semibold mb-2">Recent Reference Status Samples</p>
-                      <div className="space-y-2">
-                        <div className="flex items-center justify-between p-3 rounded-xl bg-surface-container-lowest">
-                          <div className="flex items-center gap-3">
-                            <div className="w-8 h-8 rounded-full bg-secondary-container/40 flex items-center justify-center text-secondary">
-                              <span className="material-symbols-outlined text-[18px]">done_all</span>
-                            </div>
-                            <div>
-                              <p className="font-label-md text-label-md text-on-surface font-mono">UTR: 409188219012</p>
-                              <p className="font-label-sm text-label-sm text-on-surface-variant">Muskaan Account • Consultation Intake</p>
-                            </div>
-                          </div>
-                          <span className="px-2.5 py-1 rounded-full bg-secondary-container text-on-secondary-container font-label-sm text-label-sm font-semibold flex items-center gap-1">
-                            <span className="w-1.5 h-1.5 rounded-full bg-secondary" />
-                            Successful
-                          </span>
-                        </div>
-                        <div className="flex items-center justify-between p-3 rounded-xl bg-surface-container-lowest">
-                          <div className="flex items-center gap-3">
-                            <div className="w-8 h-8 rounded-full bg-surface-container flex items-center justify-center text-outline">
-                              <span className="material-symbols-outlined text-[18px]">hourglass_empty</span>
-                            </div>
-                            <div>
-                              <p className="font-label-md text-label-md text-on-surface font-mono">UTR: 409211094321</p>
-                              <p className="font-label-sm text-label-sm text-on-surface-variant">Nishan Mann Account • Supplement Refill</p>
-                            </div>
-                          </div>
-                          <span className="px-2.5 py-1 rounded-full bg-surface-container-high text-on-surface font-label-sm text-label-sm font-semibold flex items-center gap-1">
-                            <span className="w-1.5 h-1.5 rounded-full bg-outline" />
-                            Pending Settlement
-                          </span>
-                        </div>
-                        <div className="flex items-center justify-between p-3 rounded-xl bg-surface-container-lowest">
-                          <div className="flex items-center gap-3">
-                            <div className="w-8 h-8 rounded-full bg-error-container/40 flex items-center justify-center text-error">
-                              <span className="material-symbols-outlined text-[18px]">close</span>
-                            </div>
-                            <div>
-                              <p className="font-label-md text-label-md text-on-surface font-mono">UTR: 408891004128</p>
-                              <p className="font-label-sm text-label-sm text-on-surface-variant">Bank Timeout • Reversal Initiated</p>
-                            </div>
-                          </div>
-                          <span className="px-2.5 py-1 rounded-full bg-error-container text-on-error-container font-label-sm text-label-sm font-semibold flex items-center gap-1">
-                            <span className="w-1.5 h-1.5 rounded-full bg-error" />
-                            Failed (Reversed)
-                          </span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="hidden mt-space-md p-space-sm rounded-xl bg-surface-container-lowest" id="utrResult">
+                    <p className="font-body-sm text-body-sm text-on-surface-variant mb-space-md">Submitted your payment via UPI? Provide your 12-digit UTR or Transaction ID below so our desk can match it to your appointment or order.</p>
+                    <UtrForm />
+                    <PaymentStatusList />
                   </div>
                 </div>
               </div>
