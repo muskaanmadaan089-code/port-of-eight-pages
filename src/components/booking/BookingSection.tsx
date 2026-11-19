@@ -45,7 +45,7 @@ export function BookingSection({ selected, onSelect }: { selected: PlanSlug; onS
   const { user } = useAuth();
   const navigate = useNavigate();
   const [mode, setMode] = useState<"online" | "offline">("online");
-  const [clinician, setClinician] = useState(CLINICIANS[0].value);
+  const [clinician, setClinician] = useState<string>(CLINICIANS[0]!.value);
   const [date, setDate] = useState(addDaysISO(1));
   const [slot, setSlot] = useState("11:30 AM");
   const [name, setName] = useState("");
