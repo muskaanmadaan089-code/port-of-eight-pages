@@ -50,6 +50,7 @@ export type Database = {
         Row: {
           activity_level: string
           age: number
+          age_group: string | null
           allergies: string[]
           bmi: number
           city: string | null
@@ -59,11 +60,15 @@ export type Database = {
           full_name: string
           gender: string
           health_conditions: string[]
+          health_goals: string[]
           height_cm: number
           id: string
+          lifestyle: string | null
           notes: string | null
+          nutritional_status: string | null
           phone: string
           primary_goal: string
+          selected_plan_slug: string | null
           status: string
           target_weight_kg: number | null
           user_id: string
@@ -72,6 +77,7 @@ export type Database = {
         Insert: {
           activity_level: string
           age: number
+          age_group?: string | null
           allergies?: string[]
           bmi: number
           city?: string | null
@@ -81,11 +87,15 @@ export type Database = {
           full_name: string
           gender: string
           health_conditions?: string[]
+          health_goals?: string[]
           height_cm: number
           id?: string
+          lifestyle?: string | null
           notes?: string | null
+          nutritional_status?: string | null
           phone: string
           primary_goal: string
+          selected_plan_slug?: string | null
           status?: string
           target_weight_kg?: number | null
           user_id: string
@@ -94,6 +104,7 @@ export type Database = {
         Update: {
           activity_level?: string
           age?: number
+          age_group?: string | null
           allergies?: string[]
           bmi?: number
           city?: string | null
@@ -103,17 +114,29 @@ export type Database = {
           full_name?: string
           gender?: string
           health_conditions?: string[]
+          health_goals?: string[]
           height_cm?: number
           id?: string
+          lifestyle?: string | null
           notes?: string | null
+          nutritional_status?: string | null
           phone?: string
           primary_goal?: string
+          selected_plan_slug?: string | null
           status?: string
           target_weight_kg?: number | null
           user_id?: string
           weight_kg?: number
         }
-        Relationships: []
+        Relationships: [
+          {
+            foreignKeyName: "client_intakes_selected_plan_slug_fkey"
+            columns: ["selected_plan_slug"]
+            isOneToOne: false
+            referencedRelation: "diet_plans"
+            referencedColumns: ["slug"]
+          },
+        ]
       }
       consultations: {
         Row: {
@@ -567,8 +590,11 @@ export type Database = {
       profiles: {
         Row: {
           activity_level: string | null
+          age: number | null
+          age_group: string | null
           allergies: string[]
           city: string | null
+          clinical_notes: string | null
           created_at: string
           current_weight_kg: number | null
           daily_calorie_target: number | null
@@ -579,18 +605,26 @@ export type Database = {
           full_name: string | null
           gender: string | null
           health_conditions: string[]
+          health_goals: string[]
           height_cm: number | null
           id: string
+          lifestyle: string | null
+          nutritional_status: string | null
           onboarding_complete: boolean
+          onboarding_step: number
           phone: string | null
           primary_goal: string | null
+          selected_plan_slug: string | null
           target_weight_kg: number | null
           updated_at: string
         }
         Insert: {
           activity_level?: string | null
+          age?: number | null
+          age_group?: string | null
           allergies?: string[]
           city?: string | null
+          clinical_notes?: string | null
           created_at?: string
           current_weight_kg?: number | null
           daily_calorie_target?: number | null
@@ -601,18 +635,26 @@ export type Database = {
           full_name?: string | null
           gender?: string | null
           health_conditions?: string[]
+          health_goals?: string[]
           height_cm?: number | null
           id: string
+          lifestyle?: string | null
+          nutritional_status?: string | null
           onboarding_complete?: boolean
+          onboarding_step?: number
           phone?: string | null
           primary_goal?: string | null
+          selected_plan_slug?: string | null
           target_weight_kg?: number | null
           updated_at?: string
         }
         Update: {
           activity_level?: string | null
+          age?: number | null
+          age_group?: string | null
           allergies?: string[]
           city?: string | null
+          clinical_notes?: string | null
           created_at?: string
           current_weight_kg?: number | null
           daily_calorie_target?: number | null
@@ -623,15 +665,28 @@ export type Database = {
           full_name?: string | null
           gender?: string | null
           health_conditions?: string[]
+          health_goals?: string[]
           height_cm?: number | null
           id?: string
+          lifestyle?: string | null
+          nutritional_status?: string | null
           onboarding_complete?: boolean
+          onboarding_step?: number
           phone?: string | null
           primary_goal?: string | null
+          selected_plan_slug?: string | null
           target_weight_kg?: number | null
           updated_at?: string
         }
-        Relationships: []
+        Relationships: [
+          {
+            foreignKeyName: "profiles_selected_plan_slug_fkey"
+            columns: ["selected_plan_slug"]
+            isOneToOne: false
+            referencedRelation: "diet_plans"
+            referencedColumns: ["slug"]
+          },
+        ]
       }
       recipes: {
         Row: {
@@ -875,6 +930,10 @@ export type Database = {
         Returns: string
       }
       request_nutriscan_plan: { Args: { _tier: string }; Returns: string }
+      save_client_registration: {
+        Args: { _complete?: boolean; _data: Json; _step: number }
+        Returns: string
+      }
     }
     Enums: {
       app_role: "admin" | "user"
