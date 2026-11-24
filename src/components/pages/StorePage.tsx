@@ -340,7 +340,6 @@ export function StorePage() {
               </div>
             </section>
           </div>
-          </div>
           <div className="mt-space-xl bg-surface-container-lowest rounded-2xl p-space-lg shadow-sm">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-gutter-lg items-center">
               <div className="lg:col-span-6 space-y-space-md">
