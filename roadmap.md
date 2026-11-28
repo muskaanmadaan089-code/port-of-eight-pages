@@ -6,7 +6,7 @@
 - [x] 8 pages: Home, Diet Plans, Therapeutic Diets, Store, NutriScan, Registration, Account, About
 
 ## Phase 2 — Functionality repair (brief 2: keep design exactly, make every feature work, no fake data)
-- [ ] Current request: fix header/menu alignment and right-side clipping without changing the design; verify mobile and desktop
+- [x] Current request: fix header/menu alignment and right-side clipping without changing the design; verify mobile and desktop
 - [ ] End-to-end browser audit, registration field persistence and Save & Next, selected-plan persistence, cart totals, database readback, mobile/desktop verification and truthful report
 - [x] Cloud, auth (email + Google), profiles + admin role, tables with RLS
 - [ ] Home: every link/CTA works

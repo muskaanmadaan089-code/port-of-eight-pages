@@ -170,14 +170,14 @@ export function RegistrationPage() {
                       <label className="font-label-lg text-label-lg text-on-surface" htmlFor="fullName">Full Legal Name</label>
                       <div className="relative">
                         <span className="material-symbols-outlined absolute left-3.5 top-1/2 -translate-y-1/2 text-on-surface-variant text-[20px]">badge</span>
-                        <input className="w-full bg-surface-container-low text-on-surface font-body-md text-body-md pl-11 pr-4 py-2.5 rounded-xl focus:outline-none focus:bg-surface-container-lowest transition-colors shadow-inner" id="fullName" placeholder="e.g. Aarav Sharma" required type="text" value={form.full_name} onChange={e => set("full_name", e.target.value)}} />
+                        <input className="w-full bg-surface-container-low text-on-surface font-body-md text-body-md pl-11 pr-4 py-2.5 rounded-xl focus:outline-none focus:bg-surface-container-lowest transition-colors shadow-inner" id="fullName" placeholder="e.g. Aarav Sharma" required type="text" value={form.full_name} onChange={e => set("full_name", e.target.value)} />
                       </div>
                     </div>
                     <div className="space-y-1.5">
                       <label className="font-label-lg text-label-lg text-on-surface" htmlFor="exactAge">Exact Age (Years)</label>
                       <div className="relative">
                         <span className="material-symbols-outlined absolute left-3.5 top-1/2 -translate-y-1/2 text-on-surface-variant text-[20px]">cake</span>
-                        <input className="w-full bg-surface-container-low text-on-surface font-body-md text-body-md pl-11 pr-4 py-2.5 rounded-xl focus:outline-none focus:bg-surface-container-lowest transition-colors shadow-inner" id="exactAge" max="115" min="1" required type="number" value={form.age} onChange={e => set("age", Number(e.target.value))}} />
+                        <input className="w-full bg-surface-container-low text-on-surface font-body-md text-body-md pl-11 pr-4 py-2.5 rounded-xl focus:outline-none focus:bg-surface-container-lowest transition-colors shadow-inner" id="exactAge" max="115" min="1" required type="number" value={form.age} onChange={e => set("age", Number(e.target.value))} />
                       </div>
                     </div>
                     <div className="space-y-1.5">
@@ -203,21 +203,21 @@ export function RegistrationPage() {
                       <label className="font-label-lg text-label-lg text-on-surface" htmlFor="contactPhone">Contact Number</label>
                       <div className="flex gap-2">
                         <span className="inline-flex items-center px-3 py-2.5 rounded-xl bg-surface-container text-on-surface font-label-md text-label-md select-none shrink-0">+91 (IN)</span>
-                        <input className="w-full bg-surface-container-low text-on-surface font-body-md text-body-md px-4 py-2.5 rounded-xl focus:outline-none focus:bg-surface-container-lowest transition-colors shadow-inner" id="contactPhone" pattern="[0-9]{10}" placeholder="98765 43210" required type="tel" value={form.phone} onChange={e => set("phone", e.target.value)}} />
+                        <input className="w-full bg-surface-container-low text-on-surface font-body-md text-body-md px-4 py-2.5 rounded-xl focus:outline-none focus:bg-surface-container-lowest transition-colors shadow-inner" id="contactPhone" pattern="[0-9]{10}" placeholder="98765 43210" required type="tel" value={form.phone} onChange={e => set("phone", e.target.value)} />
                       </div>
                     </div>
                     <div className="space-y-1.5">
                       <label className="font-label-lg text-label-lg text-on-surface" htmlFor="emailAddr">Email Address</label>
                       <div className="relative">
                         <span className="material-symbols-outlined absolute left-3.5 top-1/2 -translate-y-1/2 text-on-surface-variant text-[20px]">alternate_email</span>
-                        <input className="w-full bg-surface-container-low text-on-surface font-body-md text-body-md pl-11 pr-4 py-2.5 rounded-xl focus:outline-none focus:bg-surface-container-lowest transition-colors shadow-inner" id="emailAddr" placeholder="aarav.sharma@example.com" required type="email" value={form.email} onChange={e => set("email", e.target.value)}} />
+                        <input className="w-full bg-surface-container-low text-on-surface font-body-md text-body-md pl-11 pr-4 py-2.5 rounded-xl focus:outline-none focus:bg-surface-container-lowest transition-colors shadow-inner" id="emailAddr" placeholder="aarav.sharma@example.com" required type="email" value={form.email} onChange={e => set("email", e.target.value)} />
                       </div>
                     </div>
                     <div className="space-y-1.5 md:col-span-2">
                       <label className="font-label-lg text-label-lg text-on-surface" htmlFor="cityRegion">City / Region (Pan-India or International)</label>
                       <div className="relative">
                         <span className="material-symbols-outlined absolute left-3.5 top-1/2 -translate-y-1/2 text-on-surface-variant text-[20px]">pin_drop</span>
-                        <input className="w-full bg-surface-container-low text-on-surface font-body-md text-body-md pl-11 pr-4 py-2.5 rounded-xl focus:outline-none focus:bg-surface-container-lowest transition-colors shadow-inner" id="cityRegion" placeholder="e.g. Chandigarh, Punjab / Gurugram, Haryana" required type="text" value={form.city} onChange={e => set("city", e.target.value)}} />
+                        <input className="w-full bg-surface-container-low text-on-surface font-body-md text-body-md pl-11 pr-4 py-2.5 rounded-xl focus:outline-none focus:bg-surface-container-lowest transition-colors shadow-inner" id="cityRegion" placeholder="e.g. Chandigarh, Punjab / Gurugram, Haryana" required type="text" value={form.city} onChange={e => set("city", e.target.value)} />
                       </div>
                     </div>
                   </div>
@@ -241,21 +241,21 @@ export function RegistrationPage() {
                         </div>
                       </div>
                       <div className="relative">
-                        <input className="w-full bg-surface-container-low text-on-surface font-headline-sm text-headline-sm px-4 py-2.5 rounded-xl focus:outline-none focus:bg-surface-container-lowest transition-colors shadow-inner" id="userHeight" max="230" min="100" step="0.5" type="number" value={form.height_cm} onChange={e => set("height_cm", Number(e.target.value))}} />
+                        <input className="w-full bg-surface-container-low text-on-surface font-headline-sm text-headline-sm px-4 py-2.5 rounded-xl focus:outline-none focus:bg-surface-container-lowest transition-colors shadow-inner" id="userHeight" max="230" min="100" step="0.5" type="number" value={form.height_cm} onChange={e => set("height_cm", Number(e.target.value))} />
                         <span className="absolute right-4 top-1/2 -translate-y-1/2 font-label-md text-label-md text-on-surface-variant">cm</span>
                       </div>
                     </div>
                     <div className="space-y-1.5">
                       <label className="font-label-lg text-label-lg text-on-surface" htmlFor="currentWeight">Current Weight</label>
                       <div className="relative">
-                        <input className="w-full bg-surface-container-low text-on-surface font-headline-sm text-headline-sm px-4 py-2.5 rounded-xl focus:outline-none focus:bg-surface-container-lowest transition-colors shadow-inner" id="currentWeight" max="250" min="30" step="0.5" type="number" value={form.weight_kg} onChange={e => set("weight_kg", Number(e.target.value))}} />
+                        <input className="w-full bg-surface-container-low text-on-surface font-headline-sm text-headline-sm px-4 py-2.5 rounded-xl focus:outline-none focus:bg-surface-container-lowest transition-colors shadow-inner" id="currentWeight" max="250" min="30" step="0.5" type="number" value={form.weight_kg} onChange={e => set("weight_kg", Number(e.target.value))} />
                         <span className="absolute right-4 top-1/2 -translate-y-1/2 font-label-md text-label-md text-on-surface-variant">kg</span>
                       </div>
                     </div>
                     <div className="space-y-1.5">
                       <label className="font-label-lg text-label-lg text-on-surface" htmlFor="targetWeight">Target Weight</label>
                       <div className="relative">
-                        <input className="w-full bg-surface-container-low text-on-surface font-headline-sm text-headline-sm px-4 py-2.5 rounded-xl focus:outline-none focus:bg-surface-container-lowest transition-colors shadow-inner" id="targetWeight" max="250" min="30" step="0.5" type="number" value={form.target_weight_kg} onChange={e => set("target_weight_kg", Number(e.target.value))}} />
+                        <input className="w-full bg-surface-container-low text-on-surface font-headline-sm text-headline-sm px-4 py-2.5 rounded-xl focus:outline-none focus:bg-surface-container-lowest transition-colors shadow-inner" id="targetWeight" max="250" min="30" step="0.5" type="number" value={form.target_weight_kg} onChange={e => set("target_weight_kg", Number(e.target.value))} />
                         <span className="absolute right-4 top-1/2 -translate-y-1/2 font-label-md text-label-md text-on-surface-variant">kg</span>
                       </div>
                     </div>
